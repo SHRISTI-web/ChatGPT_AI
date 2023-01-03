@@ -30,7 +30,7 @@ function typeText(element, text) {
         } else {
             clearInterval(interval)
         }
-    }, 20)
+    }, 20) 
 }
 function generateUniqueId() {
   const timestamp = Date.now();
@@ -47,7 +47,7 @@ function chatStripe(isAi, value, uniqueId) {
           <div class="chat">
               <div class="profile">
                   <img 
-                    src=${isAi ? bot : user} 
+                    src="${isAi ? bot : user} "
                     alt="${isAi ? 'bot' : 'user'}" 
                   />
               </div>
@@ -60,7 +60,7 @@ function chatStripe(isAi, value, uniqueId) {
 const handleSubmit = async (e) => {
   e.preventDefault()
 
-  const data = new FormData(form)
+  const data = new FormData(form);
 
   // user's chatstripe
   chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
@@ -81,7 +81,7 @@ const handleSubmit = async (e) => {
   // messageDiv.innerHTML = "..."
   loader(messageDiv)
 
-  const response = await fetch('https://codex-im0y.onrender.com/', {
+  const response = await fetch('http://localhost:5000', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
